@@ -1,0 +1,21 @@
+
+server:
+  port: 8779
+spring:
+  application:
+    name: consul-consumer
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        # 服务是否注册到consul,默认true, 消费端不需要作为服务注册到consul中
+        register: false
+        #注册到consul的服务名称 consul-producer
+        serviceName: ${spring.application.name}
+        healthCheckPath: /actuator/health
+        #healthCheckInterval: 1s
+        #instance-id是通过【application name】+ 【port】组成，如果只是用服务名称，同一个服务的多个实例注册会被覆盖；
+        instanceId: ${spring.application.name}:${server.port}
+        ip-address: ${spring.cloud.client.ipaddress}
+        prefer-ip-address: true

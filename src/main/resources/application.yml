@@ -9,13 +9,13 @@ spring:
       host: localhost
       port: 8500
       discovery:
-        # ·şÎñÊÇ·ñ×¢²áµ½consul,Ä¬ÈÏtrue, Ïû·Ñ¶Ë²»ĞèÒª×÷Îª·şÎñ×¢²áµ½consulÖĞ
+        # æœåŠ¡æ˜¯å¦æ³¨å†Œåˆ°consul,é»˜è®¤true, æ¶ˆè´¹ç«¯ä¸éœ€è¦ä½œä¸ºæœåŠ¡æ³¨å†Œåˆ°consulä¸­
         register: false
-        #×¢²áµ½consulµÄ·şÎñÃû³Æ consul-producer
+        #æ³¨å†Œåˆ°consulçš„æœåŠ¡åç§° consul-consumer
         serviceName: ${spring.application.name}
         healthCheckPath: /actuator/health
         #healthCheckInterval: 1s
-        #instance-idÊÇÍ¨¹ı¡¾application name¡¿+ ¡¾port¡¿×é³É£¬Èç¹ûÖ»ÊÇÓÃ·şÎñÃû³Æ£¬Í¬Ò»¸ö·şÎñµÄ¶à¸öÊµÀı×¢²á»á±»¸²¸Ç£»
+        #instance-idæ˜¯é€šè¿‡ã€application nameã€‘+ ã€portã€‘ç»„æˆï¼Œå¦‚æœåªæ˜¯ç”¨æœåŠ¡åç§°ï¼ŒåŒä¸€ä¸ªæœåŠ¡çš„å¤šä¸ªå®ä¾‹æ³¨å†Œä¼šè¢«è¦†ç›–ï¼›
         instanceId: ${spring.application.name}:${server.port}
         ip-address: ${spring.cloud.client.ipaddress}
         prefer-ip-address: true
